@@ -150,3 +150,4 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOWED_ORIGINS.append(str(os.environ.get('CORS_URL')))
+CORS_ALLOWED_ORIGINS.append(str('https://'+os.environ.get('RAILWAY_PUBLIC_DOMAIN')))
