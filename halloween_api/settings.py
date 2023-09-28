@@ -149,4 +149,4 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4321",
 ]
 
-CORS_ALLOWED_ORIGINS.append(str(os.environ.get('CORS_URL'), str(os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
+CORS_ALLOWED_ORIGINS.append(str(os.environ.get('CORS_URL')))
