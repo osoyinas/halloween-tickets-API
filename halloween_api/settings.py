@@ -27,10 +27,10 @@ SECRET_KEY = 'django-insecure-ul_f$e%u@59_sf-q!0536o_k&bv=-u*&exf)m2qoknsnm4_(dr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get("DEBUG")) == "1"
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = []
 if DEBUG:
-    HOST_URL = 'http://127.0.0.1:8000/'
+    ALLOWED_HOSTS = ['*']
 else:
     HOSTNAME =  os.environ.get('RENDER_EXTERNAL_HOSTNAME')
     HOST_URL = os.environ.get('RENDER_EXTERNAL_URL')
