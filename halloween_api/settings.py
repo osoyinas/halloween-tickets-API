@@ -88,7 +88,6 @@ WSGI_APPLICATION = 'halloween_api.wsgi.application'
 
 if str(os.environ.get("DEBUG_DATABASE")) == "0":
     DATABASE_URL = os.environ.get('DATABASE_URL')
-    print(f"DATABASE:\t {DATABASE_URL}")
     DATABASES = {
         "default": {            
             "ENGINE": "django.db.backends.postgresql",
