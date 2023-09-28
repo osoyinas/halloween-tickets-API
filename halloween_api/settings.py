@@ -148,12 +148,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4321",
 ]
-HOST_URL = f"https://{os.environ.get('RAILWAY_PUBLIC_DOMAIN')}"
+HOST_URL = f"https://{os.environ.get('RAILWAY_PUBLIC_DOMAIN')}/"
 
 CORS_ALLOWED_ORIGINS.append(str(os.environ.get('CORS_URL')))
 CORS_ALLOWED_ORIGINS.append(HOST_URL)
 
 CSRF_TRUSTED_ORIGINS=[HOST_URL]
+CSRF_TRUSTED_ORIGINS.append(str(os.environ.get('CORS_URL')))
 print('CORS', str(os.environ.get('CORS_URL')))
 
 print(CORS_ALLOWED_ORIGINS)
