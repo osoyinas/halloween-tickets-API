@@ -29,8 +29,6 @@ DEBUG = str(os.environ.get("DEBUG")) == "1"
 
 ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
-
 if DEBUG:
     HOST_URL = 'http://127.0.0.1:8000/'
 else:
