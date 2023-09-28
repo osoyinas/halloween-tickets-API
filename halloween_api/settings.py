@@ -31,10 +31,11 @@ DEBUG = str(os.environ.get("DEBUG")) == "1"
 ALLOWED_HOSTS = []
 if DEBUG:
     ALLOWED_HOSTS = ['*']
-else:
     HOSTNAME =  os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-    HOST_URL = os.environ.get('RENDER_EXTERNAL_URL')
     ALLOWED_HOSTS.append(HOSTNAME)
+
+else:
+    HOST_URL = os.environ.get('RENDER_EXTERNAL_URL')
 
 
 # Application definition
