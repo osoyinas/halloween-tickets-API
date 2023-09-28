@@ -92,8 +92,14 @@ if str(os.environ.get("DEBUG_DATABASE")) == "0":
     DATABASE_URL = os.environ.get('DATABASE_URL')
     print(f"DATABASE:\t {DATABASE_URL}")
     DATABASES = {
-        "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
-    }
+        "default": {            
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.environ.get("PGDATABASE"),
+            "USER": os.environ.get("PGUSER"),
+            "PASSWORD": os.environ.get("PGPASSWORD"),
+            "HOST": os.environ.get("PGHOST"),
+            "PORT": os.environ.get("PGPORT"),
+        }}
 else:
     DATABASES = {
         "default": {
