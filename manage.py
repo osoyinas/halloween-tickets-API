@@ -2,11 +2,17 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import dotenv
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'halloween_api.settings')
+    try:
+        DEBUG = str(os.environ.get('DEBUG')) == "1"
+    except:
+        DEBUG = True
+    if(not DEBUG):
+        dotenv.load_dotenv()
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
