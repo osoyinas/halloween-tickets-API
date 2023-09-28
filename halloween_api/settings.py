@@ -27,14 +27,7 @@ SECRET_KEY = 'django-insecure-ul_f$e%u@59_sf-q!0536o_k&bv=-u*&exf)m2qoknsnm4_(dr
 DEBUG = str(os.environ.get("DEBUG")) == "1"
 
 
-ALLOWED_HOSTS = []
-if DEBUG:
-    ALLOWED_HOSTS = ['*']
-    HOSTNAME =  os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-    ALLOWED_HOSTS.append(HOSTNAME)
-
-else:
-    HOST_URL = os.environ.get('RENDER_EXTERNAL_URL')
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -156,4 +149,4 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4321",
 ]
 
-CORS_ALLOWED_ORIGINS.append(str(os.environ.get('CORS_URL')))
+CORS_ALLOWED_ORIGINS.append(str(os.environ.get('CORS_URL'), str(os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
