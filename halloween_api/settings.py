@@ -127,13 +127,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Token auth
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-}
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Agrega aquí la URL de tu aplicación de React en desarrollo
+    "http://localhost:4321",  # Agrega aquí la URL de tu aplicación de React en desarrollo
 ]
