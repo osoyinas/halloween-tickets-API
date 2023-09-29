@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
     'rest_framework',
+    'corsheaders',
     'tickets'
 ]
 
@@ -98,11 +98,6 @@ else:
         }
     }
 
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        'rest_framework.permissions.AllowAny',
-    ],
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -154,9 +149,4 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4321",
     "https://halloween-13.netlify.app"
 ]
-
-HOST_URL = f"https://{os.environ.get('RAILWAY_PUBLIC_DOMAIN')}"
-CSRF_TRUSTED_ORIGINS=[HOST_URL, "https://halloween-13.netlify.app"]
-
-CORS_ALLOW_CREDENTIALS = True
 

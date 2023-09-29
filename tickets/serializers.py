@@ -4,7 +4,7 @@ from .models import Ticket, Person
 PRICE = 12
 
 class TicketSerializer(serializers.ModelSerializer):
-    companions = serializers.ListField(child=serializers.CharField(), write_only=True)
+    companions = serializers.ListField(child=serializers.CharField(), write_only=True,  required=False)
     class Meta:
         model = Ticket
         fields = '__all__'
