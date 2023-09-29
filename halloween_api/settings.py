@@ -100,7 +100,8 @@ else:
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-    ]
+        'rest_framework.permissions.AllowAny',
+    ],
 }
 
 # Password validation
