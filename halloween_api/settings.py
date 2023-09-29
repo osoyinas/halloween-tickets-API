@@ -99,6 +99,10 @@ else:
         }
     }
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+    ]
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -155,6 +159,4 @@ HOST_URL = f"https://{os.environ.get('RAILWAY_PUBLIC_DOMAIN')}"
 CSRF_TRUSTED_ORIGINS=[HOST_URL, "https://halloween-13.netlify.app"]
 
 CORS_ALLOW_CREDENTIALS = True
-DEFAULT_AUTHENTICATION_CLASSES= (
 
-)
