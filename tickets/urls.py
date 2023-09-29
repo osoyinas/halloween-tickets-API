@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import CreateTicketFinalView
+from .views import CreateTicketAPIView
 
 urlpatterns = [
-    path('tickets/', CreateTicketFinalView, name='ticket-list-create'),
+    path('tickets/', CreateTicketAPIView.as_view(), name='ticket-list-create'),
 ]
