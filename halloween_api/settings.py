@@ -150,3 +150,4 @@ CORS_ALLOWED_ORIGINS = [
     "https://halloween-13.netlify.app"
 ]
 
+CSRF_TRUSTED_ORIGINS = ["https://halloween-13-api.up.railway.app"]
