@@ -150,6 +150,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:4321",
     "https://halloween-13.netlify.app"
 ]
+
 HOST_URL = f"https://{os.environ.get('RAILWAY_PUBLIC_DOMAIN')}"
 
 
