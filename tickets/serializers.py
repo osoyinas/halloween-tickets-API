@@ -14,11 +14,10 @@ class TicketSerializer(serializers.ModelSerializer):
         companions_data = validated_data.pop('companions', [])  # Extrae la lista de acompañantes
         validated_data['price'] = PRICE + len(companions_data) * PRICE
         ticket = Ticket.objects.create(**validated_data)
-        
-
-        # Crea un número de acompañantes igual a la longitud de la lista de acompañantes
         ticket.save()
+        
         Person.objects.create(name=validated_data['titular'], ticket=ticket)
+        # Crea un número de acompañantes igual a la longitud de la lista de acompañantes
         for companion_name in companions_data:
             Person.objects.create(name=companion_name, ticket=ticket)
 
