@@ -19,6 +19,8 @@ class Ticket(models.Model):
 class Person(models.Model):
     ticket = models.ForeignKey(Ticket, related_name='persons', on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    checked = models.BooleanField(default=False)
+    time_checked = models.TimeField(blank=True, null=True)
 
     def __str__(self):
         return str(self.name)

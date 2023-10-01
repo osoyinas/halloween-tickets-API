@@ -26,11 +26,14 @@ def notify_ticket_to_admin(ticket):
     email.send()
     
 
-QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='
+QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='
 
 def send_ticket_to_titular(ticket):
-    url_check = settings.HOST_URL + '/admin/tickets/ticket/'+ str(ticket.id)
-    context = {'titular':ticket.titular,'qr': f"{QR_API}{quote(url_check, safe='')}", 'id':ticket.id }
+
+    persons = ticket.persons.all()
+    persons_dict = [{'name': person.name, 'url': QR_API + quote(settings.HOST_URL + '/api/tickets/check/' + str(person.id))} for person in persons]
+    print(persons_dict)
+    context = {'titular':ticket.titular,'persons_dict': persons_dict, 'id':ticket.id }
     html_content = render_to_string("email_template.html",context)
     text_content = strip_tags(html_content)
     email = EmailMultiAlternatives(

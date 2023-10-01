@@ -22,3 +22,10 @@ class TicketSerializer(serializers.ModelSerializer):
             Person.objects.create(name=companion_name, ticket=ticket)
         notify_ticket_to_admin(ticket)
         return ticket
+
+
+class PersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = '__all__'
+

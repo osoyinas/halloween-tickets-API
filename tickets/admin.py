@@ -32,7 +32,7 @@ class TicketAdmin(admin.ModelAdmin):
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('name', 'ticket_number', 'ticket_paid', 'ticket_contact', 'is_titular')  # Añade los atributos de Ticket que quieras mostrar
+    list_display = ('id','name', 'ticket_number', 'ticket_paid', 'ticket_contact', 'is_titular', 'checked')  # Añade los atributos de Ticket que quieras mostrar
 
     def ticket_number(self, obj):
         return obj.ticket.id  # Reemplaza 'number' con el nombre del atributo en el modelo Ticket
