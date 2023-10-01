@@ -1,11 +1,10 @@
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from .models import Ticket
 from django.conf import settings
 from urllib.parse import quote
 
-def notify_ticket_to_admin(ticket:Ticket):
+def notify_ticket_to_admin(ticket):
     context = {'titular':ticket.titular,
             'price':ticket.price,
             'date':ticket.date, 
@@ -29,8 +28,8 @@ def notify_ticket_to_admin(ticket:Ticket):
 
 QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='
 
-def send_ticket_to_titular(ticket:Ticket):
-    context = {'titular':ticket.titular,'qr': f"{QR_API}{quote(settings.HOST_URL, safe='')}" }
+def send_ticket_to_titular(ticket):
+    context = {'titular':ticket.titular,'qr': f"{QR_API}{quote(settings.HOST_URL, safe='')}", 'id':ticket.id }
     html_content = render_to_string("email_template.html",context)
     text_content = strip_tags(html_content)
     email = EmailMultiAlternatives(
