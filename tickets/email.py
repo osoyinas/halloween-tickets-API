@@ -29,7 +29,7 @@ def notify_ticket_to_admin(ticket):
 QR_API = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='
 
 def send_ticket_to_titular(ticket):
-    url_check = settings.HOST_URL + 'admin/tickets/ticket/'+ ticket.id
+    url_check = settings.HOST_URL + 'admin/tickets/ticket/'+ str(ticket.id)
     context = {'titular':ticket.titular,'qr': f"{QR_API}{quote(url_check, safe='')}", 'id':ticket.id }
     html_content = render_to_string("email_template.html",context)
     text_content = strip_tags(html_content)
