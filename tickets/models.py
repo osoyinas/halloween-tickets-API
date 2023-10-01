@@ -14,10 +14,6 @@ class Ticket(models.Model):
     def __str__(self):
         return str(self.titular)
 
-@receiver(post_save, sender=Ticket)
-def send_ticket_email(sender, instance, **kwargs):
-    if instance.paid:
-        send_ticket_to_titular(instance)
 
 
 class Person(models.Model):
