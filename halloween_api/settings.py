@@ -164,6 +164,6 @@ EMAIL_HOST_PASSWORD = 'plkcohcplylfieam'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
+print(os.environ.get('ADMIN_MAILS'))
 ADMIN_MAILS = str(os.environ.get('ADMIN_MAILS')).split(',')
 print(ADMIN_MAILS)

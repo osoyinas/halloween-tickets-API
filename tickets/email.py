@@ -5,8 +5,6 @@ from .models import Ticket
 from django.conf import settings
 from urllib.parse import quote
 
-
-
 def notify_ticket_to_admin(ticket:Ticket):
     context = {'titular':ticket.titular,
             'price':ticket.price,
