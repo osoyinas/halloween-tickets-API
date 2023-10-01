@@ -60,7 +60,10 @@ ROOT_URLCONF = 'halloween_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "tickets" / "templates"
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -151,3 +154,16 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = ["https://halloween-13-api.up.railway.app", "https://halloween-13.netlify.app"]
+
+HOST_URL = os.environ.get('HOST_URL')
+# EMAIL CONFIG
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'osoyinas@gmail.com'
+EMAIL_HOST_PASSWORD = 'plkcohcplylfieam'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+ADMIN_MAILS = str(os.environ.get('ADMIN_MAILS')).split(',')
+print(ADMIN_MAILS)

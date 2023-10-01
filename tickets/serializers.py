@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Ticket, Person
-
+from .email import notify_ticket_to_admin
 PRICE = 12
 
 class TicketSerializer(serializers.ModelSerializer):
@@ -20,5 +20,5 @@ class TicketSerializer(serializers.ModelSerializer):
         # Crea un número de acompañantes igual a la longitud de la lista de acompañantes
         for companion_name in companions_data:
             Person.objects.create(name=companion_name, ticket=ticket)
-
+        notify_ticket_to_admin(ticket)
         return ticket

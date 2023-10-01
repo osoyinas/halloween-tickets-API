@@ -1,7 +1,17 @@
 from django.contrib import admin
 from tickets.models import Ticket,Person
-from django.db import models
+from .email import send_ticket_to_titular
 # Register your models here.
+
+
+def action_send_ticket(modeladmin, request, queryset):
+
+    for ticket in queryset:
+        # Mensaje específico para cada usuario
+        send_ticket_to_titular(ticket)
+
+action_send_ticket.short_description = "Enviar correo individual a los objetos seleccionados"
+send_ticket_to_titular.short_description = "Enviar entrada"
 
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
@@ -18,6 +28,7 @@ class TicketAdmin(admin.ModelAdmin):
     list_editable = ['paid']
     list_filter = ['paid']
     sortable_by = ['price']
+    actions= [action_send_ticket]
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
