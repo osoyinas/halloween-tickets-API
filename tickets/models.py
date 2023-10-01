@@ -16,7 +16,6 @@ class Ticket(models.Model):
 
 @receiver(post_save, sender=Ticket)
 def send_ticket_email(sender, instance, **kwargs):
-    print("PAGADO")
     if instance.paid:
         send_ticket_to_titular(instance)
 
