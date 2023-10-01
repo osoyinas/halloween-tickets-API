@@ -156,7 +156,6 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = ["https://halloween-13-api.up.railway.app", "https://halloween-13.netlify.app"]
 
 HOST_URL = os.environ.get('HOST_URL')
-print(HOST_URL)
 # EMAIL CONFIG
 
 EMAIL_HOST = 'smtp.gmail.com'
