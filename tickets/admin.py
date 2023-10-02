@@ -6,11 +6,16 @@ from .email import send_ticket_to_titular
 
 def action_send_ticket(modeladmin, request, queryset):
 
+
     for ticket in queryset:
-        # Mensaje específico para cada usuario
+        # Mensaje específico para cada usuario\
+        ticket.paid = True
+        ticket.save()
         send_ticket_to_titular(ticket)
 
-action_send_ticket.short_description = "Enviar correo individual a los objetos seleccionados"
+
+
+action_send_ticket.short_description = "Establecer como pagado y enviar entrada"
 send_ticket_to_titular.short_description = "Enviar entrada"
 
 @admin.register(Ticket)
@@ -25,7 +30,6 @@ class TicketAdmin(admin.ModelAdmin):
     companions_count.short_description = 'Personas'
     formatted_price.short_description = 'Precio'  # Define un encabezado personalizado para la columna
     search_fields = ['titular', 'email'] 
-    list_editable = ['paid']
     list_filter = ['paid']
     sortable_by = ['price']
     actions= [action_send_ticket]
