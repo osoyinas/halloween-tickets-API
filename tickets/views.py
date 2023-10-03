@@ -1,14 +1,28 @@
-from rest_framework import generics
+import datetime
+from rest_framework import generics, status
+from rest_framework.response import Response
+from django.db.models import Q
 from .models import Ticket, Person
 from .serializers import TicketSerializer, PersonSerializer
 from .permissions import IsStaffPermission
 from django.shortcuts import render
-import datetime
 
 class CreateTicketAPIView(generics.CreateAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
+    def create(self, request, *args, **kwargs):
+        # Obtén los datos del ticket del cuerpo de la solicitud
+        titular = request.data.get('titular')
+        number = request.data.get('number')
+        email = request.data.get('email')
 
+        # Verifica si ya existe un ticket con la misma información
+        existing_ticket = Ticket.objects.filter(Q(titular=titular) & Q(number=number) & Q(email=email)).first()
+
+        if existing_ticket:
+            # Si existe un ticket con la misma información, devuelve un error
+            return Response({'error': 'Este ticket ya existe.'}, status=status.HTTP_400_BAD_REQUEST)
+        return super().create(request, *args, **kwargs)
 class CheckPersonAPIView(generics.RetrieveAPIView):
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
