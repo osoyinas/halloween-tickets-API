@@ -6,6 +6,7 @@ from urllib.parse import quote
 
 def notify_ticket_to_admin(ticket):
     context = {'titular':ticket.titular,
+            'number':ticket.number,
             'price':ticket.price,
             'date':ticket.date, 
             'url': f"{settings.HOST_URL}/admin/tickets/ticket/{ticket.id}",
