@@ -41,6 +41,7 @@ class PersonAdmin(admin.ModelAdmin):
     def ticket_number(self, obj):
         return obj.ticket.id  # Reemplaza 'number' con el nombre del atributo en el modelo Ticket
     ticket_number.short_description = 'Ticket ID'  # Etiqueta que se mostrará en la columna
+    search_fields = ['name'] 
 
     def ticket_paid(self, obj):
         return "si" if obj.ticket.paid else "no"  # Reemplaza 'description' con el nombre del atributo en el modelo Ticket
@@ -51,7 +52,10 @@ class PersonAdmin(admin.ModelAdmin):
     ticket_contact.short_description = 'Contacto'  # Etiqueta que se mostrará en la columna
     def is_titular(self,obj):
         return  "Titular" if obj.name == obj.ticket.titular else f"Acompañante de {obj.ticket.titular}"
- 
+    
+    list_filter = ('ticket__paid',)
+    sortable_by = ('ticket__date',)
+
     is_titular.short_description = 'titular'  # Etiqueta que se mostrará en la columna
 
             
