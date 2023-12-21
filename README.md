@@ -68,11 +68,3 @@ Make sure you have the following tools installed before getting started:
 3. **Verify Tickets**
 
     Use the QR code scanning functionality to check if a guest has paid and identify them. This qr will redirect to /api/tickets/<id>.
-
-## Contributions
-
-Contributions are welcome! If you find a bug or have suggestions for improvement, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
