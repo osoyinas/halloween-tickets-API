@@ -6,7 +6,7 @@ This project uses Django Rest Framework to manage ticket purchase and QR codes f
 
 Make sure you have the following tools installed before getting started:
 
-- Python 3.x
+- Python 3.8
 - pip (Python package manager)
 
 ## Installation
@@ -57,17 +57,17 @@ Make sure you have the following tools installed before getting started:
 
 ## Usage
 
-1. **Access the Registration Form**
+1. **TIcket registration**
 
-    Open your browser and go to `http://127.0.0.1:8000/registration/` to register interested individuals for the party.
+To register the ticket holder and accompanying guests, make a POST request to the `/api/tickets/` endpoint.
 
-2. **Make Payments and Receive QR Codes**
+2. **QR generation and email sending**
 
-    After registration, users will receive an email with a QR code after making a payment.
+    After the admin checks the ticket as paid, users will receive an email with a QR code after making a payment.
 
 3. **Verify Tickets**
 
-    Use the QR code scanning functionality to check if a guest has paid and identify them.
+    Use the QR code scanning functionality to check if a guest has paid and identify them. This qr will redirect to /api/tickets/<id>.
 
 ## Contributions
 
