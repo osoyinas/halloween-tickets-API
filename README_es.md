@@ -1,12 +1,12 @@
 # Fiesta de Halloween - Gestor de Entradas
 
-Este proyecto utiliza Django Rest Framework para gestionar la compra y códigos QR de las entradas para una fiesta de Halloween. Permite a los usuarios registrarse y recibir códigos QR por correo electrónico y verificar la autenticidad de las entradas escaneando los códigos QR.
+Este proyecto utiliza Django Rest Framework para gestionar la compra de entradas y códigos QR para una fiesta de Halloween. Permite a los usuarios registrarse, recibir códigos QR por correo electrónico y verificar la autenticidad de las entradas escaneando códigos QR.
 
 ## Requisitos Previos
 
 Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
 
-- Python 3.x
+- Python 3.8
 - pip (administrador de paquetes de Python)
 
 ## Instalación
@@ -41,7 +41,7 @@ Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
     python manage.py migrate
     ```
 
-5. **Crear un Superusuario (Opcional, para administrar el sitio de administración de Django)**
+5. **Crear un Superusuario (Opcional, para el Sitio de Administración de Django)**
 
     ```bash
     python manage.py createsuperuser
@@ -57,22 +57,14 @@ Asegúrate de tener instaladas las siguientes herramientas antes de comenzar:
 
 ## Uso
 
-1. **Acceder al Formulario de Registro**
+1. **Registro de Entradas**
 
-    Abre tu navegador y visita `http://127.0.0.1:8000/registro/` para registrar a los interesados en la fiesta.
+    Para registrar al titular y a los acompañantes, realiza una solicitud POST al endpoint `/api/tickets/`.
 
-2. **Realizar Pagos y Recibir Códigos QR**
+2. **Generación de QR y Envío de Correo Electrónico**
 
-    Después de registrarse, los usuarios recibirán un correo electrónico con un código QR después de realizar el pago.
+    Después de que el administrador marca la entrada como pagada, los usuarios recibirán un correo electrónico con un código QR después de realizar el pago.
 
-3. **Verificar Entradas**
+3. **Verificación de Entradas**
 
-    Usa la funcionalidad de escaneo de códigos QR para verificar si un invitado ha pagado y conocer su identidad.
-
-## Contribuciones
-
-¡Las contribuciones son bienvenidas! Si encuentras un problema o tienes sugerencias de mejora, no dudes en abrir un problema o enviar un pull request.
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
+    Utiliza la funcionalidad de escaneo de códigos QR para verificar si un invitado ha pagado e identificarlos. Este QR redirigirá a `/api/tickets/<id>`.
