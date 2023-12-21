@@ -59,7 +59,7 @@ Make sure you have the following tools installed before getting started:
 
 1. **TIcket registration**
 
-To register the ticket holder and accompanying guests, make a POST request to the `/api/tickets/` endpoint.
+    To register the ticket holder and accompanying guests, make a POST request to the `/api/tickets/` endpoint.
 
 2. **QR generation and email sending**
 
