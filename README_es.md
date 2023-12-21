@@ -1,6 +1,6 @@
 # Fiesta de Halloween - Gestor de Entradas
 
-Este proyecto utiliza Django Rest Framework para gestionar la compra y códigos QR de las entradas para una fiesta de Halloween. Permite a los usuarios registrarse, realizar pagos, recibir códigos QR por correo electrónico y verificar la autenticidad de las entradas escaneando los códigos QR.
+Este proyecto utiliza Django Rest Framework para gestionar la compra y códigos QR de las entradas para una fiesta de Halloween. Permite a los usuarios registrarse y recibir códigos QR por correo electrónico y verificar la autenticidad de las entradas escaneando los códigos QR.
 
 ## Requisitos Previos
 
